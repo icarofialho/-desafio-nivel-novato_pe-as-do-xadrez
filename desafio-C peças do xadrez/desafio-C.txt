@@ -1,0 +1,58 @@
+#include <stdio.h>
+
+int main() {
+    int x1, y1, x2, y2;
+
+    printf("Digite a posição inicial (x y): ");
+    scanf("%d %d", &x1, &y1);
+
+    printf("Digite a posição final (x y): ");
+    scanf("%d %d", &x2, &y2);
+
+    printf("\nMovimento:\n");
+
+    while (x1 != x2 || y1 != y2) {
+        // Movimento na diagonal (Bispo)
+        if (x1 < x2 && y1 < y2) {
+            printf("Cima Direita\n");
+            x1++;
+            y1++;
+        } 
+        else if (x1 < x2 && y1 > y2) {
+            printf("Baixo Direita\n");
+            x1++;  
+            y1--;
+        } 
+        else if (x1 > x2 && y1 < y2) {
+            printf("Cima Esquerda\n");
+            x1--;
+            y1++;
+        } 
+        else if (x1 > x2 && y1 > y2) {
+            printf("Baixo Esquerda\n");
+            x1--;
+            y1--;
+        }
+        // Movimento apenas vertical
+        else if (y1 < y2) {
+            printf("Cima\n");
+            y1++;
+        } 
+        else if (y1 > y2) {
+            printf("Baixo\n");
+            y1--;
+        }
+        // Movimento apenas horizontal
+        else if (x1 < x2) {
+            printf("Direita\n");
+            x1++;
+        } 
+        else if (x1 > x2) {
+            printf("Esquerda\n");
+            x1--;
+        }
+    }
+
+    printf("\nChegou ao destino!\n");
+    return 0;
+}
